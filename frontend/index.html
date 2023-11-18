@@ -1,0 +1,32 @@
+<!DOCTYPE htm   l>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pesquisa Pokemon</title>
+</head>
+<body>
+    <header>
+        <h1>Pesquisa Pokemon</h1>
+    </header>
+
+    <main>
+        <section class="search">
+            <div class="container">
+                <p>Digite um nome ou id para buscar seu Pokemon.</p>
+                <input type="text" id="pokemonName" placeholder="Nome do Pokemon">
+                <input onclick="search()" type="submit" id="Enviar" placeholder="Enviar">
+            </div>
+        </section>
+
+        <section class="result">
+            
+        </section>
+    </main>
+</body>
+
+<script type="module" src="/script.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</html>
