@@ -1,8 +1,15 @@
 const express = require('express');
-const pokemonData = require('./models/pokemonApiDb')
+const getPokemonData = require('./models/pokemonApiDb');
 
 const router = express.Router();
 
-router.get('/', (require, response) => response.status(200).send(pokemonData))
+router.get('/', async (request, response) => {
+  try {
+    const pokemonData = await getPokemonData();
+    return response.status(200).json(pokemonData);
+  } catch (error) {
+    return response.status(500).json({ error: 'Erro ao obter dados do Pokémon' });
+  }
+});
 
-module.exports = router
+module.exports = router;
