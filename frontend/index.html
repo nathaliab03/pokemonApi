@@ -1,4 +1,4 @@
-<!DOCTYPE htm   l>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -21,11 +21,65 @@
         </section>
 
         <section class="result">
-            
+          
         </section>
     </main>
 </body>
 
+<script>
+  const url = 'http://localhost:3333/pokemon'
+    async function search() {
+      const pokemonName = document.getElementById('pokemonName').value;
+      const response = await fetch(`${url}?pokemonName=${pokemonName}`);
+      
+      const result = document.querySelector('.result');
 
+      result.innerHTML = '';
+  
+      if (response.ok) {
+        const pokemonData = await response.json();
+  
+        const resultImg = document.createElement('div');
+        const resultData = document.createElement('div') ;
+
+
+        const imageElement = document.createElement('img');
+        imageElement.src = pokemonData.img;
+        imageElement.alt = 'Imagem Frontal do Pokémon';
+        
+        const pokemonSearched = document.createElement('h2');
+        pokemonSearched.innerHTML = `${pokemonData.nome}`;
+
+        const pokemonId = document.createElement('p');
+        pokemonId.innerHTML = `<strong>Id:</strong> ${pokemonData.id}`;
+  
+        const pokemonType = document.createElement('p');
+        pokemonType.innerHTML = `<strong>Tipo:</strong> ${pokemonData.type}`;
+
+        const pokemonHp = document.createElement('p');
+        pokemonHp.innerHTML = `<strong>Hp:</strong> ${pokemonData.hp}`;
+
+        const pokemonAtk = document.createElement('p');
+        pokemonAtk.innerHTML = `<strong>Atk:</strong> ${pokemonData.atk}`;
+
+        const pokemonDef = document.createElement('p');
+        pokemonDef.innerHTML = `<strong>Def:</strong> ${pokemonData.def}`;
+
+        result.appendChild(resultImg);
+        result.appendChild(resultData);
+        resultImg.appendChild(imageElement);
+        resultData.appendChild(pokemonSearched);
+        resultData.appendChild(pokemonId);
+        resultData.appendChild(pokemonType);
+        resultData.appendChild(pokemonHp);
+        resultData.appendChild(pokemonDef);
+        resultData.appendChild(pokemonAtk);
+        
+      } else {
+        console.error('Erro ao buscar dados do Pokémon:', response.statusText);
+        result.innerHTML = 'Erro ao buscar dados do Pokémon.';
+      }
+    }
+  </script>
 
 </html>

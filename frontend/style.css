@@ -11,23 +11,21 @@ header > h1 {
     color: #5db9ff
 }
 
-h2 {color: #ff1f1f}
+h2 {color: #ff1f1f;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif}
 
 .result {
     display: flex;
     justify-content: center;
     margin: 1em;
+    font-family:'Courier New', Courier, monospace
 
 }
-
-
 
 .search {
     display: flex;
     justify-content: center;
 }
-
-
 
 .result img {
     width: 160px;
