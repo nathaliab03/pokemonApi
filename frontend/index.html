@@ -24,6 +24,9 @@
           
         </section>
     </main>
+    <footer>
+      <p>Desenvolvido por Alexia Henrique</p>
+    </footer>
 </body>
 
 <script>
@@ -48,7 +51,7 @@
         imageElement.alt = 'Imagem Frontal do Pokémon';
         
         const pokemonSearched = document.createElement('h2');
-        pokemonSearched.innerHTML = `${pokemonData.nome}`;
+        pokemonSearched.innerHTML = `${pokemonData.nome[0].toUpperCase()}${pokemonData.nome.substring(1)}`;
 
         const pokemonId = document.createElement('p');
         pokemonId.innerHTML = `<strong>Id:</strong> ${pokemonData.id}`;

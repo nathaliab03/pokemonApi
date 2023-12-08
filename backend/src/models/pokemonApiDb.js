@@ -4,7 +4,7 @@ const getPokemonData = async (pokemonName) => {
   try {
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName.toLowerCase()}`);
     const setPokemon = {
-      nome: pokemonName,
+      nome: response.data.species.name,
       id: response.data.id,
       type: response.data.types[0].type.name,
       img: response.data.sprites.front_default,
