@@ -7,7 +7,7 @@ const getPokemonData = async (pokemonName) => {
       nome: response.data.species.name,
       id: response.data.id,
       type: response.data.types[0].type.name,
-      img: response.data.sprites.front_default,
+      img: response.data.sprites.other['official-artwork'].front_default,
       hp: response.data.stats[0].base_stat,
       atk: response.data.stats[1].base_stat,
       def: response.data.stats[2].base_stat,

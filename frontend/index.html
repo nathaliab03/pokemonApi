@@ -3,86 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
     <title>Pesquisa Pokemon</title>
 </head>
 <body>
-    <header>
-        <h1>Pesquisa Pokemon</h1>
-    </header>
-
-    <main>
-        <section class="search">
-            <div class="container">
-                <p>Digite um nome ou id para buscar seu Pokemon.</p>
-                <input type="text" id="pokemonName" placeholder="Nome do Pokemon">
-                <input onclick="search()" type="submit" id="Enviar" placeholder="Enviar">
+  <header class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Pesquisa Pokemon</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+              </ul>
             </div>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav"></div>
+              <ul class="navbar-nav justify-content-left">
+                <li class="nav-item me-1 ">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#login">
+                    Login
+                  </button>
+                </li>
+
+                <li class="nav-item ">
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadastro">
+                    Cadastre-se
+                  </button>
+                </li>
+
+                <div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Entre em sua conta</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form>
+                          <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                  
+                          </div>
+                          <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Senha</label>
+                            <input type="password" class="form-control" id="exampleInputPassword1">
+                            <a href="">Esqueceu a senha?</a>
+                          </div>                    
+                          <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal fade" id="cadastro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastre-se</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form class="formulario">
+                          <div class="row mb-3">
+                            <label for="inputName" class="col-sm-2 col-form-label">Nome</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputName">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                              <input type="email" class="form-control" id="inputEmail">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Senha</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="inputPassword">
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <label for="repeatedPassword" class="col-sm-2 col-form-label">Repita a senha</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" id="repeatedPassword">
+                            </div>
+                            <a href="#login" data-bs-target="#login">Já possui cadastro? Logue-se</a><br>
+                            
+                          </div>
+                          
+                          <button type="submit" class="btn btn-primary" onclick="cadastrar(event)">Cadastrar</button>
+                          <span class="cadastroMessage"></span>
+                        </form>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+             </ul>
+            </div>
+        </div>
+    </nav>
+  </header>
+    <main class="container justify-content-center mt-2">
+
+
+
+      <section class="container justify-content-center text-center rounded-4" id="container-lancamentos">
+        
+          <p>Digite um nome ou id para buscar seu Pokemon.</p>
+          <input type="text" id="pokemonName" placeholder="Nome do Pokemon">
+          <button type="button" onclick="search()">Procurar Pokemon</button>
+          <button type="button" onclick="clearPokemonList()">Limpar Busca</button>
+          <br>
+          <span class="errorMessage text-center"></span>
+        </section>
+       
+        <section class="result row row-cols-1 row-cols-md-4 g-3 result container">
+          
+           
         </section>
 
-        <section class="result">
-          
-        </section>
     </main>
-    <footer>
+    <!-- <footer>
       <p>Desenvolvido por Alexia Henrique</p>
-    </footer>
+    </footer> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
-<script>
-  const url = 'http://localhost:3333/pokemon'
-    async function search() {
-      const pokemonName = document.getElementById('pokemonName').value;
-      const response = await fetch(`${url}?pokemonName=${pokemonName}`);
-      
-      const result = document.querySelector('.result');
-
-      result.innerHTML = '';
-  
-      if (response.ok) {
-        const pokemonData = await response.json();
-  
-        const resultImg = document.createElement('div');
-        const resultData = document.createElement('div') ;
-
-
-        const imageElement = document.createElement('img');
-        imageElement.src = pokemonData.img;
-        imageElement.alt = 'Imagem Frontal do Pokémon';
-        
-        const pokemonSearched = document.createElement('h2');
-        pokemonSearched.innerHTML = `${pokemonData.nome[0].toUpperCase()}${pokemonData.nome.substring(1)}`;
-
-        const pokemonId = document.createElement('p');
-        pokemonId.innerHTML = `<strong>Id:</strong> ${pokemonData.id}`;
-  
-        const pokemonType = document.createElement('p');
-        pokemonType.innerHTML = `<strong>Tipo:</strong> ${pokemonData.type}`;
-
-        const pokemonHp = document.createElement('p');
-        pokemonHp.innerHTML = `<strong>Hp:</strong> ${pokemonData.hp}`;
-
-        const pokemonAtk = document.createElement('p');
-        pokemonAtk.innerHTML = `<strong>Atk:</strong> ${pokemonData.atk}`;
-
-        const pokemonDef = document.createElement('p');
-        pokemonDef.innerHTML = `<strong>Def:</strong> ${pokemonData.def}`;
-
-        result.appendChild(resultImg);
-        result.appendChild(resultData);
-        resultImg.appendChild(imageElement);
-        resultData.appendChild(pokemonSearched);
-        resultData.appendChild(pokemonId);
-        resultData.appendChild(pokemonType);
-        resultData.appendChild(pokemonHp);
-        resultData.appendChild(pokemonDef);
-        resultData.appendChild(pokemonAtk);
-        
-      } else {
-        console.error('Erro ao buscar dados do Pokémon:', response.statusText);
-        result.innerHTML = 'Erro ao buscar dados do Pokémon.';
-      }
-    }
-  </script>
+<script src="/frontend/script/api.js"></script>
+<script src="/frontend/script/login.js"></script>
+<script src="/frontend/script/cadastro.js"></script>
 
 </html>

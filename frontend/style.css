@@ -1,4 +1,60 @@
-body {margin: 0;}
+.result {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    font-family:'Courier New', Courier, monospace;
+    border-bottom: 1px solid #fff;
+}
+
+.result img {
+    width: 100%;
+    margin: auto;
+    padding: 1em;
+    float: right;
+    width: 100p
+   
+}
+
+.pokemonSearched {
+    text-transform: capitalize;
+}
+
+.card-title {
+    margin-top: 2.5em;
+}
+
+
+footer {    
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 5px 0;
+    background-color: #363b81;
+    color: #bbe0fd;
+    position: absolute;
+    bottom: 0;
+}
+
+input[type=text]{
+    border: 1px solid rgb(206, 206, 206);
+    padding: 3px 15px;
+}
+
+button {
+    border: 1px solid rgb(206, 206, 206);
+}
+
+
+/* IMPLEMENTAÇÃO TESTE */
+.detailed-card {
+    visibility: hidden;
+    position: absolute;
+    transition: 4s;
+}
+
+
+
+/* body {margin: 0;}
 
 header {    
     display: flex;
@@ -14,35 +70,13 @@ header > h1 {
 h2 {color: #ff1f1f;
 font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif}
 
-.result {
-    display: flex;
-    justify-content: center;
-    margin: 1em;
-    font-family:'Courier New', Courier, monospace
 
-}
 
 .search {
     display: flex;
     justify-content: center;
 }
 
-.result img {
-    width: 160px;
-    height: 213px;
-    margin-right: 1em;
-    padding: 1em;
-    border: 1px groove #363b81;
-    box-shadow: 3px 5px 10px #cacac9;
-}
 
-footer {    
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 5px 0;
-    background-color: #363b81;
-    color: #bbe0fd;
-    position: absolute;
-    bottom: 0;
-}
+
+ */
